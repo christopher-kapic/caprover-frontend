@@ -1,6 +1,10 @@
-import { InfoCircleOutlined } from '@ant-design/icons'
+import {
+    EyeInvisibleOutlined,
+    EyeTwoTone,
+    InfoCircleOutlined,
+} from '@ant-design/icons'
 import { Button, Col, Input, Row, Switch, Tooltip } from 'antd'
-import React, { Component } from 'react'
+import { Component } from 'react'
 import { IHashMapGeneric } from '../../../models/IHashMapGeneric'
 import Utils from '../../../utils/Utils'
 import NewTabLink from '../../global/NewTabLink'
@@ -124,7 +128,14 @@ export default class AppConfigs extends Component<
             return (
                 <Row style={{ paddingBottom: 12 }} key={`${index}`}>
                     <Col span={8}>
-                        <Input
+                        <Input.Password
+                            iconRender={(visible) =>
+                                visible ? (
+                                    <EyeTwoTone />
+                                ) : (
+                                    <EyeInvisibleOutlined />
+                                )
+                            }
                             className="code-input"
                             placeholder="key"
                             value={value.key}
